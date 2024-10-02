@@ -1,0 +1,95 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+body {
+    padding-top: 65px; 
+    /* background-color: #c3cbdc;
+    background-image: linear-gradient(147deg, #c3cbdc 0%, #edf1f4 74%); */
+}
+input {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    background-image: none;
+}
+input:focus {
+    border: none;
+}
+
+.search-input-container:hover {
+    opacity: 1;
+}
+.search-input-container {
+    opacity: 0.8;
+    border: 2px solid grey;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.search-input-container:focus-within {
+    border: 2px solid blue;
+}
+#search-input {
+    min-width: 90%;
+}
+
+#weather-card {
+    padding: 18px;
+    margin: 18px 0;
+    border-radius: 18px;
+}
+#long-timestamp {
+    font-size: 22px;
+}
+#main-temperature-text {
+    font-size: 72px;
+    font-family: 'M PLUS Code Latin';
+    /* font-family: 'Press Start 2P'; */
+}
+#weather-description {
+    font-size: 22px;
+}
+.t-18 {
+    font-size: 18px;
+}
+#weather-icon {
+    width: 120px;
+}
+#primary-nav {
+    background-color: aliceblue;
+}
+
+#api-response-card {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    padding: 18px;
+    margin: 18px 0;
+    border: 2px solid grey;
+    border-radius: 18px;
+}
+#api-response {
+    font-size: 16px;
+    white-space: pre;
+    color: black;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.error {
+    background-color: red;
+    font-size: 18px;
+}
+
+#search-result-item {
+    padding: 8px 18px;
+    align-items: center;
+    background-color: #e6e6e6;
+}
+#search-result-item:hover {
+    background-color: lightslategray;
+    cursor: pointer;
+}
