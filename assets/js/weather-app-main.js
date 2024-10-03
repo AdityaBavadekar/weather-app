@@ -1,10 +1,7 @@
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
-// OpenWeatherMap API Key
-// In case you are using my api key from here just know that 
-// I might disable/delete it anytime if not required.
-// This is directly added here because it anyway be seen durring openweathermap get request.
-var API_KEY = "3f1e30e16cf4d774e0138971d751006f"; 
+// OpenWeatherMap API Key.
+var API_KEY = "[TODO]"; 
 
 const longTimestampText = document.getElementById('long-timestamp');
 const mainTemperatureText = document.getElementById('main-temperature-text');
