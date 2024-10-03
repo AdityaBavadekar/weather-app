@@ -26,7 +26,7 @@ input:focus {
 }
 .search-input-container {
     opacity: 0.8;
-    border: 2px solid grey;
+    border: 2px solid rgba(0, 0, 0, 0.619);
     padding: 8px;
     border-radius: 8px;
 }
@@ -90,6 +90,6 @@ input:focus {
     background-color: #e6e6e6;
 }
 #search-result-item:hover {
-    background-color: lightslategray;
+    background-color: #bcbcbc;
     cursor: pointer;
 }

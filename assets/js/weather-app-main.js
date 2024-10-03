@@ -140,16 +140,9 @@ function getCurrentCity(onSuccess){
 function addSearchResult(text){
     const element = document.createElement('div');
     element.innerHTML = `
-    <div
-    class="d-flex flex-row my-auto"
-    id="search-result-item"
-    >
-    <i
-        class="ri-search-line me-2 my-auto text-dark"
-    ></i>
-    <p class="my-auto text-dark">
-        ${text}
-    </p>
+    <div class="d-flex container my-auto" id="search-result-item">
+        <i class="ri-search-line me-2 my-auto text-dark"></i>
+        <p class="my-auto text-dark">${text}</p>
     </div>`
     element.addEventListener('click', ()=>{
         searchInput.value = null;
