@@ -1,8 +1,33 @@
+:root {
+    --placeholder-color: grey;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    var(--placeholder-color);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    var(--placeholder-color);
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    var(--placeholder-color);
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    var(--placeholder-color);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color:    var(--placeholder-color);
+}
+
+::placeholder { /* Most modern browsers support this now. */
+    color:    var(--placeholder-color);
 }
 
 body {
@@ -92,4 +117,14 @@ input:focus {
 #search-result-item:hover {
     background-color: #bcbcbc;
     cursor: pointer;
+}
+
+.top-action-btn {
+    padding: 12px;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.32);
+}
+
+.top-action-btn:hover {
+    background-color: rgba(188, 187, 187, 0.543);
 }

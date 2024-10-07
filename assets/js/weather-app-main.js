@@ -1,7 +1,7 @@
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
 // OpenWeatherMap API Key.
-var API_KEY = "[TODO]"; 
+var API_KEY = "3f1e30e16cf4d774e0138971d751006f"; 
 
 const longTimestampText = document.getElementById('long-timestamp');
 const mainTemperatureText = document.getElementById('main-temperature-text');
@@ -94,6 +94,16 @@ function renderWeatherInfo(response){
     lastUpdatedText.innerText = `Last updated: ${lastUpdated.toLocaleTimeString()}`;
     document.body.style.background = getWeatherGradientById(response.weather[0].id);
     document.querySelector('#primary-nav').style.background = getWeatherGradientById(response.weather[0].id);
+
+    fetch(`https://restcountries.com/v3.1/alpha/${response.sys.country}?fields=name,flags,timezones`)
+    .then(response=>response.json())
+    .then(data=>{
+        const countryName = data.name.common;
+        const timezone = data.timezones[0];
+        const flagImageUrl = data.flags.png;
+        locationText.innerText = `${response.name}, ${countryName}`;
+        document.getElementById('country-flag').src = flagImageUrl;
+    })
 }
 
 function getWeatherDataCurrent() {
@@ -103,7 +113,7 @@ function getWeatherDataCurrent() {
     })
 }
 
-function getWeatherData(city_name) {
+function getWeatherData(city_name, fallback=()=>{}) {
     changeLoaderVisibility(true);
     const url = `${BASE_URL}?q=${city_name}&appid=${API_KEY}&units=metric`;
     fetch(url)
@@ -117,6 +127,9 @@ function getWeatherData(city_name) {
     .catch(e=>{
         console.log(e);
         changeLoaderVisibility(false);
+        if(fallback){
+            fallback();
+        }
     })
 }
 
@@ -227,9 +240,24 @@ searchInput.addEventListener('keypress', (e)=>{
     }
 });
 
+document.getElementById("get-my-weather").addEventListener('click', ()=>{
+    getWeatherDataCurrent();
+})
+
 setInterval(async () => {
     const result = await checkOnlineStatus();
     onNetworkChange(result);
 }, 4500);
 
-getWeatherDataCurrent();
+const paramsString = window.location.search;
+const urlParams = new URLSearchParams(paramsString);
+if (urlParams.has('name')) {
+    const placeName = urlParams.get('name');
+    getWeatherData(placeName, ()=>{
+        console.log("Error finding weather information for " + placeName);
+        getWeatherDataCurrent();
+    });
+}else{
+    getWeatherDataCurrent();
+}
+

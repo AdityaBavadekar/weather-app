@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Weather App</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -24,7 +24,7 @@
             href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="/assets/css/weather-app-main.css" />
+        <link rel="stylesheet" href="assets/css/weather-app-main.css" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,8 +42,11 @@
         />
     </head>
     <body>
-        <nav class="navbar fixed-top bg-gradient-secondary text-primary" id="primary-nav">
-            <div class="container-fluid col">
+        <nav
+            class="navbar fixed-top bg-gradient-secondary text-primary"
+            id="primary-nav"
+        >
+            <div class="container-fluid col me-1">
                 <a class="navbar-brand" href="#">
                     <i class="ri-cloud-fill"></i>
                     Weather App
@@ -61,8 +64,14 @@
                             placeholder="Search city or place"
                         />
                     </div>
-                    <div class="round p-2 container justify-content-center" id="search-results-container" style="position: absolute;overflow: auto;;">
-                    </div>
+                    <div
+                        class="round p-2 container justify-content-center"
+                        id="search-results-container"
+                        style="position: absolute; overflow: auto"
+                    ></div>
+                </div>
+                <div class="col-1">
+                    <i class="ri-focus-3-line text-dark rounded top-action-btn" id="get-my-weather"  data-toggle="tooltip" data-placement="bottom" title="Get Weather at my location"></i>
                 </div>
             </div>
         </nav>
@@ -89,10 +98,13 @@
 
                 <div class="container">
                     <div id="weather-card">
-                        <p id="long-timestamp">Today, 1 October</p>
+                        <p id="long-timestamp">Tue Sept 22 2024</p>
                         <div class="d-flex flex-row">
                             <i class="ri-map-pin-2-line p-2"></i>
                             <p id="location-text" class="p-2">Mumbai, India</p>
+                            <div class="p-2">
+                                <img src="" alt="Country Flag" class="rounded" id="country-flag" height="20px">
+                            </div>
                         </div>
 
                         <div
@@ -133,6 +145,9 @@
                             <i class="ri-history-line me-1 t-18"></i>
                             <p class="t-18" id="last-updated">Last updated</p>
                         </div>
+                        <br>
+                        <div class="container d-flex" id="country-card">
+                        </div>
                     </div>
                 </div>
 
@@ -161,31 +176,32 @@
                 <br />
                 <br />
             </div>
-            
-        <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">City not found</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            The City you entered is invalid and does not exist.
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            id="modal-close-btn"
-                            data-bs-dismiss="modal"
-                        >
-                            Close
-                        </button>
+
+            <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">City not found</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                The City you entered is invalid and does not
+                                exist.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                id="modal-close-btn"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </main>
 
         <footer class="footer">
@@ -199,6 +215,6 @@
             </div>
         </footer>
 
-        <script src="./assets/js/weather-app-main.js"></script>
+        <script src="assets/js/weather-app-main.js"></script>
     </body>
 </html>
