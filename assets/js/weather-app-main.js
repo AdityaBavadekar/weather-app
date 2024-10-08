@@ -193,7 +193,7 @@ function getWeatherGradientById(weatherId) {
     }
 }
 
-fetch('/assets/data/cities.json')
+fetch('assets/data/cities.json')
 .then(response=>response.json())
 .then(response=>{
     cities = response;
