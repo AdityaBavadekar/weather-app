@@ -128,3 +128,9 @@ input:focus {
 .top-action-btn:hover {
     background-color: rgba(188, 187, 187, 0.543);
 }
+
+#offline-alert {
+    margin-top: 18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}

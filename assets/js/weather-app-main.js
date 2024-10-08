@@ -42,6 +42,11 @@ function onNetworkChange(isOnline){
     } else {
         console.log('Offline');
         offlineAlert.classList.remove('hidden');
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant'
+        })
     }
 }
 const checkOnlineStatus = async () => {
@@ -102,6 +107,7 @@ function renderWeatherInfo(response){
         const timezone = data.timezones[0];
         const flagImageUrl = data.flags.png;
         locationText.innerText = `${response.name}, ${countryName}`;
+        document.getElementById('country-info-link').href = `https://adityabavadekar.github.io/country-card/country.html?country=${countryName}`;
         document.getElementById('country-flag').src = flagImageUrl;
     })
 }
