@@ -85,7 +85,7 @@ function renderWeatherInfo(response){
     locationText.innerText = `${response.name}, ${response.sys.country}`;
     mainTemperatureText.innerText = `${temperature}°C`;
     weatherDescriptionText.innerText = weatherDescription;
-    weatherIcon.src = `http://openweathermap.org/img/wn/${weatherIconId}@4x.png`;
+    weatherIcon.src = `https://openweathermap.org/img/wn/${weatherIconId}@4x.png`;
     highTemperatureText.innerText = `High ${temperatureMax}°C`;
     lowTemperatureText.innerText = `Low ${temperatureMin}°C`;
     feelsLikeText.innerText = `Feels like ${feelsLike}°C`;
