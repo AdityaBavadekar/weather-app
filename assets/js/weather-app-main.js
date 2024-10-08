@@ -192,8 +192,9 @@ function getWeatherGradientById(weatherId) {
         return 'linear-gradient(to right, #e0eafc, #cfdef3)';
     }
 }
-
-fetch(window.location.href + 'assets/data/cities.json')
+const cities_json_path = window.location.href + 'assets/data/cities.json';
+console.log(cities_json_path);
+fetch(cities_json_path)
 .then(response=>response.json())
 .then(response=>{
     cities = response;
