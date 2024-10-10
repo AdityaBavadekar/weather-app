@@ -11,7 +11,6 @@ const windsText = document.getElementById('winds');
 const weatherIcon = document.getElementById('weather-icon');
 const locationText = document.getElementById('location-text');
 const apiResponseText = document.getElementById('api-response');
-const logMoniterText = document.getElementById('log-moniter');
 const lastUpdatedText = document.getElementById('last-updated');
 const highTemperatureText = document.getElementById('high-temperature');
 const lowTemperatureText = document.getElementById('low-temperature');
