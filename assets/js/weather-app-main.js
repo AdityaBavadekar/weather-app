@@ -35,6 +35,7 @@ console.log = function(...items) {
 }
 
 function changeLoaderVisibility(visible){
+    console.log("Loading : " + visible)
     if (visible) {
         loader.classList.remove('hidden');
     }else{
@@ -47,6 +48,7 @@ function showCityNotFoundModal(){
 }
 
 function onNetworkChange(isOnline){
+    console.log("isOnline : " + isOnline)
     if(isOnline){
         offlineAlert.classList.add('hidden');
         console.log('Online');
