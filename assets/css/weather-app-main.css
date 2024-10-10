@@ -134,3 +134,9 @@ input:focus {
     padding-top: 18px;
     padding-bottom: 18px;
 }
+
+@media screen and (max-width: 430px) {
+    .nav-padding {
+        padding-top: 40px;
+    }
+}
