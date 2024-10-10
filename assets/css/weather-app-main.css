@@ -2,6 +2,11 @@
     --placeholder-color: grey;
 }
 
+html, body {
+    /* https://stackoverflow.com/questions/25887927/bootstrap-some-kind-of-margin-on-mobile-devices-only-right-side */
+    overflow-x: hidden;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
