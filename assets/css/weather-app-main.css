@@ -51,6 +51,10 @@ input:focus {
     border: none;
 }
 
+.nav {
+    padding-right: 10px;
+}
+
 .search-input-container:hover {
     opacity: 1;
 }
@@ -143,5 +147,11 @@ input:focus {
 @media screen and (max-width: 430px) {
     .nav-padding {
         padding-top: 40px;
+    }
+    #weather-icon {
+        width: 90px;
+    }
+    #main-temperature-text {
+        font-size: 42px;
     }
 }
