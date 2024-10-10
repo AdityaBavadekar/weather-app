@@ -3,6 +3,8 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 // OpenWeatherMap API Key.
 var API_KEY = "3f1e30e16cf4d774e0138971d751006f"; 
 
+var oldLog = console.log;
+
 const longTimestampText = document.getElementById('long-timestamp');
 const mainTemperatureText = document.getElementById('main-temperature-text');
 const weatherDescriptionText = document.getElementById('weather-description');
@@ -11,6 +13,7 @@ const windsText = document.getElementById('winds');
 const weatherIcon = document.getElementById('weather-icon');
 const locationText = document.getElementById('location-text');
 const apiResponseText = document.getElementById('api-response');
+const logMoniterText = document.getElementById('log-moniter');
 const lastUpdatedText = document.getElementById('last-updated');
 const highTemperatureText = document.getElementById('high-temperature');
 const lowTemperatureText = document.getElementById('low-temperature');
@@ -22,6 +25,14 @@ const offlineAlert = document.getElementById('offline-alert');
 const loader = document.getElementById('loader');
 const searchResultsContainer = document.getElementById('search-results-container');
 var cities = [];
+
+console.log = function(...items) {
+    oldLog.apply(this, items);
+    items.forEach( (item,i)=>{
+        items[i] = (typeof item === 'object' ? JSON.stringify(item,null,4) : item);
+    });
+    logMoniterText.innerHTML += items.join(' ') + '<br />';
+}
 
 function changeLoaderVisibility(visible){
     if (visible) {
