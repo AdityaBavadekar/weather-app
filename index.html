@@ -80,7 +80,7 @@
             <div>
                 <div class="container">
                     <div
-                        class="alert alert-warning hidden"
+                        class="alert alert-warning d-none"
                         role="alert"
                         id="offline-alert"
                     >
@@ -91,7 +91,7 @@
                 <div class="container" id="loader">
                     <div class="d-flex justify-content-start ms-3">
                         <div class="spinner-border m-4" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                            <span class="visually-d-none">Loading...</span>
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                     </button>
                     <button
                         type="button"
-                        class="btn btn-info hidden"
+                        class="btn btn-info d-none"
                         id="btn-api-response-hide"
                     >
                         <i class="ri-close-line"></i>
@@ -173,19 +173,13 @@
                             <code id="api-response">[Empty]</code>
                         </div>
                     </div>
-                    
-                    <div class="container">
-                        <div id="log-moniter-container">
-                            <code id="log-moniter"></code>
-                        </div>
-                    </div>
                 </div>
 
                 <br />
                 <br />
             </div>
 
-            <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="modal" tabindex="-1" aria-d-none="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">

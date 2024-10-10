@@ -3,8 +3,6 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 // OpenWeatherMap API Key.
 var API_KEY = "3f1e30e16cf4d774e0138971d751006f"; 
 
-var oldLog = console.log;
-
 const longTimestampText = document.getElementById('long-timestamp');
 const mainTemperatureText = document.getElementById('main-temperature-text');
 const weatherDescriptionText = document.getElementById('weather-description');
@@ -26,20 +24,11 @@ const loader = document.getElementById('loader');
 const searchResultsContainer = document.getElementById('search-results-container');
 var cities = [];
 
-console.log = function(...items) {
-    oldLog.apply(this, items);
-    items.forEach( (item,i)=>{
-        items[i] = (typeof item === 'object' ? JSON.stringify(item,null,4) : item);
-    });
-    logMoniterText.innerHTML += items.join(' ') + '<br />';
-}
-
 function changeLoaderVisibility(visible){
-    console.log("Loading : " + visible)
     if (visible) {
-        loader.classList.remove('hidden');
+        loader.classList.remove('d-none');
     }else{
-        loader.classList.add('hidden');
+        loader.classList.add('d-none');
     }
 }
 
@@ -48,13 +37,12 @@ function showCityNotFoundModal(){
 }
 
 function onNetworkChange(isOnline){
-    console.log("isOnline : " + isOnline)
     if(isOnline){
-        offlineAlert.classList.add('hidden');
+        offlineAlert.classList.add('d-none');
         console.log('Online');
     } else {
         console.log('Offline');
-        offlineAlert.classList.remove('hidden');
+        offlineAlert.classList.remove('d-none');
         window.scrollTo({
             top: 0,
             left: 0,
@@ -138,8 +126,6 @@ function getWeatherData(city_name, fallback=()=>{}) {
     fetch(url)
     .then(response => response.json())
     .then(response=>{
-        console.log("SUCCESS");
-        console.log(response);
         renderWeatherInfo(response);
         changeLoaderVisibility(false);
     })
@@ -157,7 +143,6 @@ function getCurrentCity(onSuccess){
     .then(response=>response.json())
     .then(response=>{
         const city = response.location.city;
-        console.log(city);
         onSuccess(city);
     })
     .catch(e=>{
@@ -211,8 +196,8 @@ function getWeatherGradientById(weatherId) {
         return 'linear-gradient(to right, #e0eafc, #cfdef3)';
     }
 }
+
 const cities_json_path = window.location.href + 'assets/data/cities.json';
-console.log(cities_json_path);
 fetch(cities_json_path)
 .then(response=>response.json())
 .then(response=>{
@@ -230,14 +215,14 @@ const collapseApiResponse = new bootstrap.Collapse(document.querySelector("#api-
 });
 
 document.querySelector("#btn-api-response-show").addEventListener('click', ()=>{
-    document.querySelector("#btn-api-response-show").classList.add("hidden");
-    document.querySelector("#btn-api-response-hide").classList.remove("hidden");
+    document.querySelector("#btn-api-response-show").classList.add("d-none");
+    document.querySelector("#btn-api-response-hide").classList.remove("d-none");
     collapseApiResponse.show();
 });
 
 document.querySelector("#btn-api-response-hide").addEventListener('click', ()=>{
-    document.querySelector("#btn-api-response-hide").classList.add("hidden");
-    document.querySelector("#btn-api-response-show").classList.remove("hidden");
+    document.querySelector("#btn-api-response-hide").classList.add("d-none");
+    document.querySelector("#btn-api-response-show").classList.remove("d-none");
     collapseApiResponse.hide();
 });
 
